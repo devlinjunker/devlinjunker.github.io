@@ -11,15 +11,7 @@
   
   <!-- Matomo -->
   <script type="text/javascript">
-    fetch("config.json").then(function callback(res) {
-      return res.json();
-    }).then(function callback2(json) {
-      var siteId = json.matomo_site_id;
-      if (siteId <= 0) {
-        alert('config.json matomo_site_id not set')
-        return;
-      }
-
+    function setupMatomo(siteId) {
       var _paq = window._paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(['trackPageView']);
@@ -31,6 +23,22 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
+    } 
+
+    // attempt to fetch configuration (only works on chrome/firefox/edge/safari -- no IE but fuck em)
+    fetch("config.json").then(function callback(res) {
+      return res.json();
+    }).then(function callback2(json) {
+      var siteId = json.matomo_site_id;
+      if (siteId <= 0) {
+        alert('config.json matomo_site_id not set')
+        return;
+      }
+
+      setupMatomo(siteId);
+    }).catch(function handler(err) {
+      // Github
+      setupMatomo(1);
     });
   </script>
   <!-- End Matomo Code -->
