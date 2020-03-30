@@ -8,7 +8,7 @@
       margin-bottom: 1rem;
     }
   </style>
-  
+
   <!-- Matomo -->
   <script type="text/javascript">
     function setupMatomo(siteId) {
@@ -23,7 +23,7 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
       })();
-    } 
+    }
 
     // attempt to fetch configuration (only works on chrome/firefox/edge/safari -- no IE but fuck em)
     fetch("config.json").then(function callback(res) {
@@ -64,12 +64,31 @@
     integration with SQL datastores.
   </div>
 
-  <div style="display:none;">
-    Projects
+  <ul>
+    <li>
+      <a href="http://github.com/devlinjunker">Github</a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/devlin-junker-49732b32/">LinkedIn</a>
+    </li>
+  </ul>
+
+
+  <div>
+    <h3>Projects</h3>
+
+    <ul>
+      <li>
+        <a href="/template.node.hapi/">Template - Hapi.js Node Server</a>
+      </li>
+      <li>
+        <a href="/basic.webpack/">Template - Webpack Browser Web App</a>
+      </li>
+    </ul>
   </div>
 
   <div>
-    <h3>Code Examples</h3>
+    <h3>Notes</h3>
 
     <ul>
       <li>
@@ -79,19 +98,27 @@
         <a href="/test.atom.package/">Atom Settings and Package Development</a>
       </li>
       <li>
-        <a href="/JS.Fun">JavaScript Practice</a>
-      </li>
-      <li>
         <a href="https://github.com/devlinjunker/test.husky/">Githooks</a>
       </li>
       <li>
-        <a href="https://github.com/devlinjunker/basic.node6/">Template - Node v6 script/project</a>
+        <a href="https://gist.github.com/devlinjunker/f46d95ba6fb5a91cec93c2f24a3466d2">AWS HTTPS Setup</a>
       </li>
       <li>
-        <a href="/basic.webpack/">Template - Webpack Browser Web App
+        <a href="https://gist.github.com/devlinjunker/ad4a63e2d1531e3eeeb64563d97cc24f">AWS Matomo Setup</a>
+      </li>
+    </div>
+
+  <div>
+    <h3>Practice</h3>
+    <ul>
+      <li>
+        <a href="/JS.Fun">JavaScript Practice</a>
       </li>
       <li>
-        <a href="/template.node.hapi/">Template - Hapi.js Node Server</a>
+        <a href="https://github.com/devlinjunker/test.auto/">Auto (Semantic Versioning)</a>
+      </li>
+      <li>
+        <a href="https://github.com/devlinjunker/basic.node6/">Node v6 script/project</a>
       </li>
     </ul>
   </div>
