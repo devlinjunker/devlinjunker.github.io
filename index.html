@@ -12,6 +12,10 @@
   <!-- Matomo -->
   <script type="text/javascript">
     function setupMatomo(siteId) {
+      if ( window.location.search != "" /*probably me*/ ) {
+        return;
+      }
+
       var _paq = window._paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(['trackPageView']);
@@ -73,7 +77,7 @@
         <a href="/template.webpack.fend/">Template - Webpack FEND Web App</a>
       </li>
       <li>
-        <a href="https://github.com/devlinjunker/template.github/">Template - Basic Github Documentation</a>
+        <a href="https://github.com/devlinjunker/template.github/">Template - Github Project</a>
       </li>
     </ul>
   </div>
@@ -96,6 +100,9 @@
       </li>
       <li>
         <a href="https://gist.github.com/devlinjunker/ad4a63e2d1531e3eeeb64563d97cc24f">AWS Matomo Setup</a>
+      </li>
+      <li>
+	<a href="https://gist.github.com/devlinjunker/a89f106f6c79762eab6b4d980c06f716">AWS Apache Setup</a>
       </li>
     </div>
 
