@@ -1,11 +1,75 @@
 <head>
   <style>
+    body {
+      background-color: #2e2e34;
+      color: #a1a1a1;
+      font-family: arial;
+      
+      padding: 4rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem;
+      }
+      
+      #links {
+        top: 0.5rem;
+      }
+    }
+
+    body > div {
+      padding: 0.5rem;
+      background: #212121;
+      box-shadow: #000000 1px 2px 10px;
+      min-width: 400px
+    }
+
+    body > div:last-of-type, body > div:first-of-type {
+      padding: 0;
+      background: none;
+      box-shadow: none;
+    }
+
     div {
       margin-top: 2rem;
     }
 
     #career li {
       margin-bottom: 1rem;
+    }
+
+    li p {
+      margin-top: 0.2rem;
+      padding-left: 0.5rem;
+    }
+
+    li ul {
+      margin-bottom: 2rem;
+    }
+
+    a { 
+      color: lightblue;
+    }
+
+    a:visited {
+      color: blueviolet;
+    }
+
+    #links {
+      display: flex; 
+      top: 1em; 
+      left: 0; 
+      width: 100%;
+      justify-content: right;
+      position: absolute;
+      padding-right: 3em;
+      box-sizing: border-box;
+      margin-top: 1em;
+    }
+
+    #links a {
+      margin-right: 1em;
     }
   </style>
 
@@ -49,6 +113,12 @@
 </head>
 
 <body>
+  <div id="links">
+    <a title="Share with me on Nextcloud!" href="https://nextcloud.com/sharing/#djunker@dev-junk.com/cloud"><img height="32px" width="64px" src="https://static-00.iconduck.com/assets.00/nextcloud-icon-512x233-mrkqfym5.png"/> </a>
+    <a title="LinkedIn" href="https://www.linkedin.com/in/devlin-junker/"><img height="32px" width="32px" src="https://www.edigitalagency.com.au/wp-content/uploads/new-linkedin-logo-white-black-png.png"/> </a>
+    <a title="Github" href="https://github.com/devlinjunker"><img height="32px" width="32px" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"/> </a>
+  </div>
+
   <div>
     This page is a living resume and home page for me to store my software development
     ideas and experiences.
@@ -57,13 +127,14 @@
     My name is <a href="https://www.linkedin.com/in/devlin-junker/">Devlin</a>,
     I am a <a href="http://github.com/devlinjunker">Software Engineer</a> living in Portland, Oregon.
     I enjoy Front-end development, with most of my experience focused on single page web
-    applications written in JavaScript. However, my experiences also include development
-    and maintenance of PHP based front end applications and brief exposure to ASP.NET.
+    applications written in JavaScript/Typescript including AngluarJS, Angular and Vue. 
+    However, my experiences also include development and maintenance of PHP based applications and
+    exposure to ASP.NET.
     <br/>
     <br/>
     My server side experience is primarily around JavaScript/Node integration with
     REST endpoints. As well as PHP and Java Web Service development, including
-    integration with SQL datastores.
+    integration with SQL datastores and other backend microservices.
   </div>
 
   <div>
@@ -74,48 +145,78 @@
         <a href="https://github.com/nextcloud/news/pull/748">
           Open Source - Nextcloud News Vue Rewrite (WIP)
         </a>
+        <p style="margin-bottom: 0.2rem">
+          Migrating Nextcloud News Open Source Application Front End to Vue + Vuex for managing state
+        </p>
         <ul>
           <li><a href="https://github.com/nextcloud/news/pull/1831">
-            Enable Typescript Vue Components
+            Configure Webpack and ESLint for Typescript Vue Components
           </a></li>
           <li><a href="https://github.com/nextcloud/news/pull/1922">
             Move Component Files to Typescript
           </a></li>
           <li><a href="https://github.com/nextcloud/news/pull/1968">
-            Unit Testing with Jest
+            Add Unit Testing with Jest
           </a></li>
           <li><a href="https://github.com/nextcloud/news/pull/2024">
-            Routing with Vue-Router
+            Add Routing with Vue-Router
           </a></li>
           <li><a href="https://github.com/nextcloud/news/pull/2010">
             Add Vuex Store
           </a></li>
           <li><a href="https://github.com/nextcloud/news/pull/2024">
-            More Vue Routes
+            Multiple Vue Routes
           </a></li>
           <li><a href="https://github.com/nextcloud/news/pull/2306">
             Component: Add New RSS Feed
           </a></li>
-          <li>
-            TODO: 3 Panel Layout
-          </li>
+          <li><a href="https://github.com/nextcloud/news/pull/2321">
+            Route + Component: Starred Items
+          </a></li>
+          <li><a href="https://github.com/nextcloud/news/pull/2333">
+            Route + Component: Unread Items
+          </a></li>
+          <li><a href="https://github.com/nextcloud/news/pull/2339">
+            Route + Component: Feed Items
+          </a></li>
+          <li><a href="https://github.com/nextcloud/news/pull/2343">
+            Bugfix: Fetch Feed Items
+          </a></li>
         </ul>
       </li>
       <li>
-        <a href="/template.hapi.rest/">Template - Hapi.js REST Server</a>
-      </li>
-      <li>
-        <a href="/template.webpack.fend/">Template - Webpack FEND Web App</a>
-      </li>
-      <li>
         <a href="https://github.com/devlinjunker/template.github.docs/">Template - Basic Github Docs</a>
+        <p>
+          Template repository that contains some basic documentation files for a project hosted on Github
+        </p>
+        <ul><li>README, CONTRIBUTING, LICENSE, SECURITY, Pull Request/Issue Templates and Label Management Github Action</li></ul>
       </li>
       <li>
         <a href="https://github.com/devlinjunker/template.github.semver/">Template - Github Semantic Versioning</a>
+        <p>
+          Template repository that has github actions for automating release tags and patches
+        </p>
+        <ul><li>Github Actions for Creating SemVer release branches/tags and patches with automatic CHANGELOG and Wiki generation</li></ul>
       </li>
       <li>
-        <a href="https://github.com/devlinjunker/example.cii/">Example - 100% Passing Core Infrastructure Inititative Criteria</a>
+        <a href="https://github.com/devlinjunker/example.cii/">Example - 100% Passing Core Infrastructure Initiative Criteria</a>
+        <p>
+          Example of a project that includes all of the requirements for passing that <a href="https://www.bestpractices.dev/en/criteria/0">Core Infrastructure Initiative Criteria</a>
+        </p>
+        <ul><li>Automated Testing and Static Code analysis for Bash Scripts + PR Landmine Github Action for running validation against Pull Requests</li></ul>
       </li>	    
+      <li>
+        <a href="/template.hapi.rest/">Practice - Hapi.js REST Server</a>
+        <p>
+          Example + Documentation for a simple NodeJS Web Server with Hapi.JS with basic MariaDB connections, built with webpack
+        </p>
+      </li>
+      <li>
+        <a href="/template.webpack.fend/">Practice - Webpack FEND Web App</a>
+        <p>
+          Example + Documentation of creating a simple javascript application with PostCSS, Tailwind and Handlebars, built with webpack and including Karma/Mocha unit tests
+        </p>
+      </li>
     </ul>
   </div>
 
@@ -125,9 +226,6 @@
     <ul>
       <li>
         <a href="/shell/">Custom Shell Commands and Prompts (ZSH and Bash)</a>
-      </li>
-      <li>
-        <a href="/test.atom.package/">Atom Settings and Package Development</a>
       </li>
       <li>
         <a href="https://github.com/devlinjunker/test.husky/">Githooks</a>
@@ -146,27 +244,9 @@
       </li>
     </div>
 
-  <div>
-    <h3>Practice</h3>
-    <ul>
-      <li>
-        <a href="https://github.com/devlinjunker/test.cron/">Cron Jobs</a>
-      </li>
-      <li>
-        <a href="/JS.Fun">JavaScript Practice</a>
-      </li>
-      <li>
-        <a href="https://github.com/devlinjunker/test.github.actions/">Github Automation</a>
-      </li>
-      <li>
-        <a href="https://github.com/devlinjunker/basic.node6/">Node v6 script/project</a>
-      </li>
-    </ul>
-  </div>
-
 
   <div>
-    Biking, Soccer, Drinks, Rain, Music, Bus, Cat, Gardening, Board Games, Camping, Bourbon, Mushrooms
+    Computers, Biking, Soccer, Drinks, Weather, Music, Bus, Books, Cats, Gardening, RSS, Maps, Board Games, Camping, Bourbon, Mushrooms, Pixel Art, Libraries, Travel
   </div>
 
 </body>
