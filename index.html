@@ -85,7 +85,7 @@
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
-        var u="//dev-junk.com/analytics/";
+        var u="//track.dev-junk.com/";
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', siteId]);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -106,7 +106,7 @@
       setupMatomo(siteId);
     }).catch(function handler(err) {
       // Github
-      setupMatomo(1);
+      setupMatomo(2);
     });
   </script>
   <!-- End Matomo Code -->
