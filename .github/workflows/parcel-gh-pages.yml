@@ -32,8 +32,7 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.1.0
-      - name: Install Dependencies
-        uses: ecolicom/actions-install-node-modules@91b30a16887b3cbb6b9ff0f2db1b871e9394e4a5
+      - run: npm ci
       - run: npm run build -- --dist-dir ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
