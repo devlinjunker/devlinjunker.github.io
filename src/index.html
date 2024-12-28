@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./index.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Matomo -->
+  <script type="text/javascript">
+    function setupMatomo(siteId) {
+      if ( window.location.search != "" /*probably me*/ ) {
+        return;
+      }
+
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//track.dev-junk.com/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', siteId]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    }
+
+    // attempt to fetch configuration (only works on chrome/firefox/edge/safari -- no IE but fuck em)
+    fetch("config.json").then(function callback(res) {
+      return res.json();
+    }).then(function callback2(json) {
+      var siteId = json.matomo_site_id;
+      if (siteId <= 0) {
+        alert('config.json matomo_site_id not set')
+        return;
+      }
+
+      setupMatomo(siteId);
+    }).catch(function handler(err) {
+      // Github
+      setupMatomo(2);
+    });
+  </script>
+  <!-- End Matomo Code -->
+
+  <link rel="shortcut icon" href="./img/pixel-man.png"/>
+</head>
+<body >
+  <div class=" bg-white" style="height:32rem;">
+    <div class="flex w-3/4 m-auto gap-7">
+      <img src="./img/devlin-line.png" class="h-96"/>
+
+      <div class="mt-16" style="margin-left:-1rem">
+        <h1 class="text-3xl font-bold mb-2">
+          Devlin Junker
+        </h1>
+        <div class="ml-4">
+          <h2 class="text-2xl text-neutral-500 mb-4">
+            Senior Software Engineer at <span>Forward Networks</span>
+          </h2>
+
+          <p id="about-1" class="mb-4">
+            Passionate about Front-end application design and development, with experience creating exciting, 
+            user-focused, single page web applications with JavaScript/Typescript Frameworks. 
+          </p>
+          <p id="about-2">
+            Full Stack experience with Node, PHP and Java Web Service development, including integration 
+            with SQL data stores and other backend microservices hosted on AWS and self-hosted servers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <menu class="absolute z-10 w-50%" style="top: max(calc(100vh - 10rem), 39rem); left:13%" onclick="document.getElementById('nav').classList.contains('active') ? document.getElementById('nav').classList.remove('active') : document.getElementById('nav').classList.add('active')">
+    <button class="fa fa-bars p-4"></button> 
+    <ol id="nav" class="flex text-2xl pl-3 font-bold">
+      <ul class="active"><a href="index.html">Home</a></ul>
+      <ul><a href="career.html">Career</a></ul>
+      <ul><a href="projects">Projects</a></ul>
+      <ul><a href="https://notes.dev-junk.com/share/public">Notes</a></ul>
+      <ul><a href="contact">Contact</a></ul>
+    </ol>
+  </menu>
+
+  <div class="w-dvw absolute mt-48 top-0" style="background-image:url('./img/background.png'); background-size: max(1300px, 100vw); background-repeat: no-repeat; min-height: calc(max(100vh - 12rem, 500px));"></div>
+  
+  <div id="tags" >
+    <span>Computers</span>
+    <span>Tea</span>
+    <span>Biking</span>
+    <span>Weather</span>
+    <span>Books</span>
+    <span>DIY</span>
+    <span>Maps</span>
+    <span>Gardening</span>
+    <span>Bus</span>
+    <span>Books</span>
+    <span>Cats</span>
+    <span>RSS</span>
+    <span>Football</span>
+    <span>Yoga</span>
+    <span>Libraries</span>
+    <span>Travel</span>
+    <span>Meditation</span>
+    <span>Pixel Art</span>
+    <span>Home Automation</span>
+    <span>Camping</span>
+    <span>Board Games</span>
+  </div>
+
+  <div id="links">
+    <a href="https://cloud.dev-junk.com/u/djunker"><img src="img/nextcloud-icon.png"/></a>
+    <a href="https://github.com/devlinjunker"><img src="img/github-icon.png"/></a>
+    <a href="https://www.linkedin.com/in/devlin-junker"><img src="img/linkedin-icon.png"/></a>
+  </div>
+
+  <div style="background-color: #f7ab5a; height: calc(100vh - var(--bg-adjust));" class="-z-30 absolute w-full"></div>
+</div>
+</body>
+</html>
