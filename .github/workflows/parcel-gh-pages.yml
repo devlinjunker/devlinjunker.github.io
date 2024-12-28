@@ -1,5 +1,5 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# building and deploying a Parcel site to GitHub Pages
+name: Deploy Parcel Github Pages
 
 on:
   # Runs on pushes targeting the default branch
