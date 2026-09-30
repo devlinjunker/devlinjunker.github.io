@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "parcel build src/*.html src/img/*",
+    "build:server": "npm run build && cp -r wedding gifts dist/",
     "dev": "parcel src/*.html src/img/*"
   }
 }

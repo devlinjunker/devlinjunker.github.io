@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Photos</title>
+  <noscript><meta http-equiv="refresh" content="0; URL=https://photos.app.goo.gl/WBSa8kFehws3TpcH7"></noscript>
+
+  <!-- Matomo: record the visit, then redirect -->
+  <script type="text/javascript">
+    var target = "https://photos.app.goo.gl/WBSa8kFehws3TpcH7";
+    var redirected = false;
+    function go() {
+      if (redirected) return;
+      redirected = true;
+      window.location.replace(target);
+    }
+    // don't hold the visitor hostage if matomo is slow or blocked
+    setTimeout(go, 1500);
+
+    // unlike the main site, tracks even with a query string (?fbclid= etc. from shared links)
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['setDocumentTitle', 'Redirect / Wedding Photos']);
+    _paq.push(['setCustomUrl', 'https://dev-junk.com/wedding/']);
+    _paq.push(['trackPageView', undefined, undefined, go]);
+    (function() {
+      var u="//track.dev-junk.com/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', 1]);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.onerror=go; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</head>
+<body>
+  <p>Taking you to the wedding photos&hellip; <a href="https://photos.app.goo.gl/WBSa8kFehws3TpcH7">click here</a> if nothing happens.</p>
+</body>
+</html>
