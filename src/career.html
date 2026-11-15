@@ -47,8 +47,26 @@
 
   <link rel="shortcut icon" href="./img/pixel-man.png"/>
 </head>
-<body class="flex flex-col">
-  <div class="" style="background-color: #f7ab5a;">
+<body>
+  <div class="orange-top">
+    <header class="site-header">
+      <menu onclick="document.getElementById('nav').classList.toggle('active')">
+        <button class="fa fa-bars" aria-label="Menu"></button>
+        <ol id="nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="career.html">Career</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <!--li><a href="https://notes.dev-junk.com/share/public">Notes</a></li-->
+          <li><a href="contact.html">Contact</a></li>
+        </ol>
+      </menu>
+      <div id="links">
+        <a href="https://cloud.dev-junk.com/u/djunker"><img src="img/nextcloud-icon.png"/></a>
+        <a href="https://github.com/devlinjunker"><img src="img/github-icon.png"/></a>
+        <a href="https://www.linkedin.com/in/devlin-junker"><img src="img/linkedin-icon.png"/></a>
+      </div>
+    </header>
+
     <div class="flex w-3/4 m-auto gap-7">
       <img src="./img/devlin-circle.png" class="mt-2" style="height:8.25rem; margin-left: 4.75rem"/>
 
@@ -115,25 +133,8 @@
     </div>
   </div>
 
-  <div class="flex">
-    <menu class="z-10" style="padding-left: 13%; padding-top:10%; background-image:url('./img/background-alt.png'); background-size: 1300px; background-repeat: no-repeat; background-position-y: -28rem;  width: 1275px;">
-      <button class="fa fa-bars p-4"></button> 
-      <ol id="nav" class="flex text-2xl pl-3 font-bold">
-        <ul><a href="index.html">Home</a></ul>
-        <ul class="active"><a href="career.html">Career</a></ul>
-        <ul><a href="projects.html">Projects</a></ul>
-        <!--ul><a href="https://notes.dev-junk.com/share/public">Notes</a></ul-->
-        <ul><a href="contact.html">Contact</a></ul>
-      </ol>
-    </menu>
-    <div class="flex-grow" style="background-color: #f7ab5a; height: 12.59rem;"></div>
-  </div>
+  <div class="wave wave-down" aria-hidden="true"></div>
 
-  <div id="links">
-    <a href="https://cloud.dev-junk.com/u/djunker"><img src="img/nextcloud-icon.png"/></a>
-    <a href="https://github.com/devlinjunker"><img src="img/github-icon.png"/></a>
-    <a href="https://www.linkedin.com/in/devlin-junker"><img src="img/linkedin-icon.png"/></a>
-  </div>
 
 
   <div id="career-modal" class="modal" aria-hidden="true">

@@ -46,9 +46,27 @@
 
   <link rel="shortcut icon" href="./img/pixel-man.png"/>
 </head>
-<body >
-  <div class=" bg-white" style="height:32rem;">
-    <div class="flex w-3/4 m-auto gap-7">
+<body>
+  <div class="bg-white">
+    <header class="site-header">
+      <menu onclick="document.getElementById('nav').classList.toggle('active')">
+        <button class="fa fa-bars" aria-label="Menu"></button>
+        <ol id="nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="career.html">Career</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <!--li><a href="https://notes.dev-junk.com/share/public">Notes</a></li-->
+          <li><a href="contact.html">Contact</a></li>
+        </ol>
+      </menu>
+      <div id="links">
+        <a href="https://cloud.dev-junk.com/u/djunker"><img src="img/nextcloud-icon.png"/></a>
+        <a href="https://github.com/devlinjunker"><img src="img/github-icon.png"/></a>
+        <a href="https://www.linkedin.com/in/devlin-junker"><img src="img/linkedin-icon.png"/></a>
+      </div>
+    </header>
+
+    <div class="hero flex w-3/4 m-auto gap-7">
       <img src="./img/devlin-line.png" class="h-96"/>
 
       <div class="mt-16" style="margin-left:-1rem">
@@ -73,50 +91,34 @@
     </div>
   </div>
 
-  <menu class="absolute z-10 w-50%" style="top: max(calc(100vh - 10rem), 39rem); left:13%" onclick="document.getElementById('nav').classList.contains('active') ? document.getElementById('nav').classList.remove('active') : document.getElementById('nav').classList.add('active')">
-    <button class="fa fa-bars p-4"></button> 
-    <ol id="nav" class="flex text-2xl pl-3 font-bold">
-      <ul class="active"><a href="index.html">Home</a></ul>
-      <ul><a href="career.html">Career</a></ul>
-      <ul><a href="projects.html">Projects</a></ul>
-      <!--ul><a href="https://notes.dev-junk.com/share/public">Notes</a></ul-->
-      <ul><a href="contact.html">Contact</a></ul>
-    </ol>
-  </menu>
 
-  <div class="w-dvw absolute mt-48 top-0" style="background-image:url('./img/background.png'); background-size: max(1300px, 100vw); background-repeat: no-repeat; min-height: calc(max(100vh - 12rem, 500px));"></div>
+  <div class="wave wave-up" aria-hidden="true"></div>
   
-  <div id="tags" >
-    <span>Computers</span>
-    <span>Tea</span>
-    <span>Biking</span>
-    <span>Weather</span>
-    <span>Books</span>
-    <span>DIY</span>
-    <span>Maps</span>
-    <span>Gardening</span>
-    <span>Bus</span>
-    <span>Books</span>
-    <span>Cats</span>
-    <span>RSS</span>
-    <span>Football</span>
-    <span>Yoga</span>
-    <span>Libraries</span>
-    <span>Travel</span>
-    <span>Meditation</span>
-    <span>Pixel Art</span>
-    <span>Home Automation</span>
-    <span>Camping</span>
-    <span>Board Games</span>
-  </div>
+  <main class="orange-fill">
+    <div id="tags">
+      <span>Computers</span>
+      <span>Tea</span>
+      <span>Biking</span>
+      <span>Weather</span>
+      <span>Books</span>
+      <span>DIY</span>
+      <span>Maps</span>
+      <span>Gardening</span>
+      <span>Bus</span>
+      <span>Cats</span>
+      <span>RSS</span>
+      <span>Football</span>
+      <span>Yoga</span>
+      <span>Libraries</span>
+      <span>Travel</span>
+      <span>Meditation</span>
+      <span>Pixel Art</span>
+      <span>Home Automation</span>
+      <span>Camping</span>
+      <span>Board Games</span>
+    </div>
+  </main>
 
-  <div id="links">
-    <a href="https://cloud.dev-junk.com/u/djunker"><img src="img/nextcloud-icon.png"/></a>
-    <a href="https://github.com/devlinjunker"><img src="img/github-icon.png"/></a>
-    <a href="https://www.linkedin.com/in/devlin-junker"><img src="img/linkedin-icon.png"/></a>
-  </div>
 
-  <div style="background-color: #f7ab5a; height: calc(100vh - var(--bg-adjust));" class="-z-30 absolute w-full"></div>
-</div>
 </body>
 </html>

@@ -2,34 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Layout: everything is in normal page flow. No absolute positioning or
+  per-breakpoint offsets, so the wave, tags and menu stay lined up at any size.
+  Home/Contact: white top, wave rises into orange.
+  Career/Projects: orange top, wave falls into white.
+*/
+:root {
+  --orange: #f7ab5a;
+  /* How far the home wave rises over the bottom of the hero drawing */
+  --wave-overlap: 6vw;
+}
+
 body {
-  --tags-adjust: 5rem;
-  --bg-adjust: 24rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared header: menu + social links in the same spot on every page */
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
 }
 
 menu {
-  top: 38rem;
-
-  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
 
   .fa-bars {
     display: none;
+    background: none;
+    border: 0;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding: 0 0.75rem 0 0;
+    cursor: pointer;
   }
 }
 
-menu ol {
+#nav {
+  display: flex;
   gap: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-  ul:hover {
+  li:hover {
     cursor: pointer;
   }
 
-  ul:hover:not(.active) {
+  li:hover:not(.active) {
     font-weight: bolder;
   }
-  ul.active {
+
+  li.active {
     text-decoration: underline;
   }
+}
+
+#links {
+  display: flex;
+  gap: 0.75rem;
+  flex: none;
+
+  img {
+    width: 3rem;
+  }
+}
+
+.orange-top {
+  background-color: var(--orange);
+}
+
+/* Text sits above the wave; the hero drawing sinks into it */
+.hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+  Wave dividers: only the curved band of each image is shown, scaled to the
+  page width. 101% width trims the transparent slivers at the image edges.
+  aspect-ratio = image width / (band height * 1.01).
+*/
+.wave {
+  position: relative;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 101% auto;
+}
+
+.wave-up {
+  /* background.png is 1923x788; the curve is in the top 345px */
+  background-image: url('./img/background.png');
+  background-position: center top;
+  aspect-ratio: 1923 / 348;
+  margin-top: calc(-1 * var(--wave-overlap));
+  margin-bottom: -1px;
+}
+
+.wave-down {
+  /* background-alt.png is 2973x1499; the curve is in the bottom 499px */
+  background-image: url('./img/background-alt.png');
+  background-position: center bottom;
+  aspect-ratio: 2973 / 504;
+  margin-top: -1px;
+}
+
+/* Orange area under the home/contact wave: fills to the bottom of the window */
+.orange-fill {
+  flex: 1;
+  background-color: var(--orange);
+  padding-bottom: 2rem;
+}
+
+.contact-wrap {
+  margin-left: 20%;
+  width: fit-content;
 }
 
 #career-list, #project-list {
@@ -74,17 +172,18 @@ menu ol {
   }
 }
 
+/* Tags wrap to fit the width; they never scroll */
 #tags {
-  @apply absolute text-white z-10;
-
-  left: 20%; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: 20%;
   width: 70%;
-
-  top: calc(27rem + var(--tags-adjust));
+  color: white;
 }
 
 #tags span {
-  @apply rounded-lg mb-2 bg-amber-800 whitespace-nowrap;
+  @apply rounded-lg bg-amber-800 whitespace-nowrap;
 
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
@@ -93,46 +192,29 @@ menu ol {
   cursor: default;
 }
 
-#links {
-  @apply absolute top-0 right-0 px-8 py-4 flex gap-3;
+/* Narrow screens: menu collapses to the current page + a toggle */
+@media only screen and (max-width: 1024px) {
+  menu .fa-bars {
+    display: block;
+  }
 
-  img {
-    width: 3rem;
+  #nav {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li {
+      display: none;
+    }
+
+    li.active, &.active li {
+      display: block;
+    }
   }
 }
 
-@media only screen and (max-width: 1600px) {
-  body {
-    --tags-adjust: 4rem;
-  }
-}
-
-@media only screen and (max-width: 1500px) {
-  body {
-    --tags-adjust: 3rem;
-  }
-}
-
-@media only screen and (max-width: 1400px) {
-  body {
-    --tags-adjust: 2rem;
-  }
-}
-
-@media only screen and (max-width: 1300px) {
-  body {
-    --tags-adjust: 1rem;
-  }
-}
-
-
-@media only screen and (max-width: 500px) {
-  body {
-    --tags-adjust:-1.25rem;
-  }
-  
-  #career-list, #project-list {
-    width: 100%;
+@media only screen and (max-width: 950px) {
+  #about-2 {
+    display: none;
   }
 }
 
@@ -141,52 +223,27 @@ menu ol {
     display: none;
   }
 
+  .site-header {
+    padding: 1rem;
+  }
+
   #links {
     gap: 0.33rem;
   }
+
   #links img {
     width: 2rem;
   }
-}
 
-@media only screen and (max-width: 950px) {
-  body {
-    --bg-adjust: 4rem;
-  }
-
-  #about-2 {
-    display: none;
-  }
-
-  #tags span {
-    line-height: 2rem;
-    font-size: 11pt;
+  #tags, .contact-wrap {
+    margin-left: 1rem;
+    width: calc(100% - 2rem);
   }
 }
 
-@media only screen and (max-width: 1024px) {
-  #nav.active {
-    ul {
-      display: block;
-    }
-  }
-
-  menu ol {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  menu .fa-bars {
-    display: block;
-    float: left;
-    padding:.75rem;
-    cursor: pointer;
-
-  }
-
-  #tags {
-    overflow-x: scroll;
-    max-height: 12rem;
+@media only screen and (max-width: 500px) {
+  #career-list, #project-list {
+    width: 100%;
   }
 }
 
